@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,3 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
+
+
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
