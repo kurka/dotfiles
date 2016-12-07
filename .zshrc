@@ -88,5 +88,5 @@ alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
 
 source ~/.zsh-external-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh-external-plugings/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh-external-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
