@@ -7,8 +7,10 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-# ZSH_THEME="avit"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="fishy"
+ZSH_THEME="philips"
+# ZSH_THEME="pure"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,16 +49,18 @@ ZSH_THEME="robbyrussell"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+# plugins=(git, sudo, catimage, per-directory-history)
+plugins=(git, sudo, catimg, chucknorris, common-aliases, history, web-search, fasd, autojump, per-directory-hist, zsh-autosuggestions)#, zsh-syntax-highlighting)#, zsh-history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -87,6 +91,19 @@ source $ZSH/oh-my-zsh.sh
 alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
 
-source ~/.zsh-external-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh-external-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh-external-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh-custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh-custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# substring search keybindings
+bindkey '^[[A' history-substring-search-up
+#bindkey '^[[1;5A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+#bindkey '^[[1;5B' history-substring-search-down
+
+
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
