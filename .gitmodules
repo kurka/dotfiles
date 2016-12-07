@@ -124,3 +124,9 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule ".zsh-external-plugins/zsh-autosuggestions"]
+	path = .zsh-external-plugins/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
+[submodule ".zsh-external-plugins/zsh-syntax-highlighting"]
+	path = .zsh-external-plugins/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
