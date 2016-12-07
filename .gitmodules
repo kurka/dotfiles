@@ -127,3 +127,6 @@
 [submodule ".zsh-external-plugins/zsh-syntax-highlighting"]
 	path = .zsh-external-plugins/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
