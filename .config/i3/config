@@ -348,14 +348,14 @@ bindsym $mod+F12 exec xscreensaver-command -lock
 
 #Startup programs
 exec --no-startup-id "xscreensaver -no-splash"
-exec --no-startup-id "xrandr --output VGA-1 --mode 1280X1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 2944x0 --rotate normal --output HDMI-1 --off --output DP-1 --primary --mode 1920x1200 --pos 1024x0 --rotate normal --output DP-2 --off
+exec --no-startup-id "xrandr --output VGA-1 --mode 1280x1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-1 --off --output DP-1 --primary --mode 1920x1200 --pos 1280x0 --rotate normal --output DP-2 --off"
 # exec --no-startup-id "xrandr --output VGA-1 --mode 1280x1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-1 --off --output DP-1 --mode 1920x1200 --pos 1280x0 --rotate normal --output DP-2 --off"
 exec --no-startup-id dropbox
 exec --no-startup-id rescuetime
 exec --no-startup-id compton -b -f
 exec --no-startup-id dunst &
 exec --no-startup-id redshift &
-exec --no-startup-id ~/gitwatch/gitwatch.sh -s 14400 -r origin -m "%d" ~/vimwiki 
+exec --no-startup-id ~/gitwatch/gitwatch.sh -s 14400 -r origin -m "%d" ~/vimwiki
 exec --no-startup-id setxkbmap -option caps:escape
 # misc settings
 
