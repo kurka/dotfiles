@@ -9,8 +9,9 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="fishy"
-ZSH_THEME="philips"
+# ZSH_THEME="philips"
 # ZSH_THEME="pure"
+ZSH_THEME="geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,11 +57,13 @@ ZSH_CUSTOM=~/.zsh-custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git, sudo, catimage, per-directory-history)
-plugins=(git, sudo, catimg, chucknorris, common-aliases, history, web-search, fasd, autojump, per-directory-hist, zsh-autosuggestions)#, zsh-syntax-highlighting)#, zsh-history-substring-search)
+plugins=(git, sudo, catimg, chucknorris, common-aliases, history, web-search, fasd, autojump, per-directory-hist, zsh-completions, zsh-autosuggestions)#, zsh-syntax-highlighting)#, zsh-history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -105,5 +108,6 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+
+
+#TODO: more completions
