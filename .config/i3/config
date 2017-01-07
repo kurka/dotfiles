@@ -357,6 +357,7 @@ exec --no-startup-id dunst &
 exec --no-startup-id redshift &
 exec --no-startup-id ~/gitwatch/gitwatch.sh -s 14400 -r origin -m "%d" ~/vimwiki
 exec --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id nm-applet &
 # misc settings
 
 # log out prompt
