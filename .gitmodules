@@ -1,5 +1,5 @@
-[submodule "/home/kurka/.vim/bundle/Vundle.vim"]
-	path = /home/kurka/.vim/bundle/Vundle.vim
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".vim/bundle/vim-snipmate"]
 	path = .vim/bundle/vim-snipmate
@@ -142,8 +142,8 @@
 [submodule ".vim/bundle/fsharp-vim"]
 	path = .vim/bundle/fsharp
 	url = https://github.com/kongo2002/fsharp-vim
-[submodule "/home/kurka/.vim/bundle/taskwiki"]
-	path = /home/kurka/.vim/bundle/taskwiki
+[submodule ".vim/bundle/taskwiki"]
+	path = .vim/bundle/taskwiki
 	url = https://github.com/tbabej/taskwiki
 [submodule ".vim/bundle/vim-plugin-AnsiEsc"]
 	path = .vim/bundle/vim-plugin-AnsiEsc
