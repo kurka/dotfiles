@@ -282,13 +282,13 @@ bindsym $mod+Control+e move container to workspace $w3r; workspace $w3r
 # bindsym $mod+Control+0 move container to workspace $w10l
 
 
-workspace "$w1r" output $OUTPUT_R
-workspace "$w2r" output $OUTPUT_R
-workspace "$w3r" output $OUTPUT_R
+# workspace "$w1r" output $OUTPUT_R
+# workspace "$w2r" output $OUTPUT_R
+# workspace "$w3r" output $OUTPUT_R
 
-workspace "$w1c" output $OUTPUT_C
-workspace "$w2c" output $OUTPUT_C
-workspace "$w3c" output $OUTPUT_C
+# workspace "$w1c" output $OUTPUT_C
+# workspace "$w2c" output $OUTPUT_C
+# workspace "$w3c" output $OUTPUT_C
 
 assign [class="Spotify"] → $w10
 
@@ -348,8 +348,7 @@ bindsym $mod+F12 exec xscreensaver-command -lock
 
 #Startup programs
 exec --no-startup-id "xscreensaver -no-splash"
-exec --no-startup-id "xrandr --output VGA-1 --mode 1280x1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-1 --off --output DP-1 --primary --mode 1920x1200 --pos 1280x0 --rotate normal --output DP-2 --off"
-# exec --no-startup-id "xrandr --output VGA-1 --mode 1280x1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-1 --off --output DP-1 --mode 1920x1200 --pos 1280x0 --rotate normal --output DP-2 --off"
+# exec --no-startup-id "xrandr --output VGA-1 --mode 1280x1024 --pos 0x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-1 --off --output DP-1 --primary --mode 1920x1200 --pos 1280x0 --rotate normal --output DP-2 --off"
 exec --no-startup-id dropbox
 exec --no-startup-id rescuetime
 exec --no-startup-id compton -b -f
