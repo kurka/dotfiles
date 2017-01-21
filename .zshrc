@@ -10,8 +10,8 @@
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="fishy"
 # ZSH_THEME="philips"
-# ZSH_THEME="pure"
-ZSH_THEME="geometry"
+ZSH_THEME="pure"
+# ZSH_THEME="geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
