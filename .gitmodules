@@ -139,9 +139,6 @@
 [submodule ".vim/bundle/vim-fsharp"]
 	path = .vim/bundle/vim-fsharp
 	url = https://github.com/fsharp/vim-fsharp
-[submodule ".vim/bundle/fsharp-vim"]
-	path = .vim/bundle/fsharp
-	url = https://github.com/kongo2002/fsharp-vim
 [submodule ".vim/bundle/taskwiki"]
 	path = .vim/bundle/taskwiki
 	url = https://github.com/tbabej/taskwiki
@@ -154,3 +151,6 @@
 [submodule ".vim/bundle/vim-taskwarrior"]
 	path = .vim/bundle/vim-taskwarrior
 	url = https://github.com/farseer90718/vim-taskwarrior
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
