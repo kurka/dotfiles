@@ -641,7 +641,7 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_next_key="\<C-s>"
+" let g:multi_cursor_next_key="\<C-s>"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -737,6 +737,12 @@ let g:syntastic_check_on_wq = 0
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => commentary
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufRead *.md setlocal commentstring=<!--\ %s\ -->
+autocmd FileType markdown,vimwiki setlocal commentstring=<!--\ %s\ -->
 
 "
 "extended.vim
@@ -895,12 +901,23 @@ set splitbelow
 imap jj <Esc>
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
+highlight BadWhitespace ctermbg=red guibg=darkred
+" hihglight trailing whitespaces
+autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
+"
 nnoremap j gj
 nnoremap k gk
 vnoremap < <gv
 vnoremap > >gv
+" capital Y yanks until the end of the line (like D)
+map Y y$
+" Map Q to repeat the last recorded macro
+map Q @@
 set number
 
 " Yank to system clipboard
 map <leader>y "*y
+
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
 
