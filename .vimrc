@@ -319,8 +319,8 @@ autocmd BufWrite * :call DeleteTrailingWS()
 "
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+" map <leader>n :cn<cr>
+" map <leader>p :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -434,7 +434,7 @@ au FileType python syn keyword pythonDecorator True None False self
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
-au FileType python map <buffer> F :set foldmethod=indent<cr>
+" au FileType python map <buffer> F :set foldmethod=indent<cr>
 
 au FileType python inoremap <buffer> $r return
 au FileType python inoremap <buffer> $i import
@@ -916,7 +916,9 @@ map Q @@
 set number
 
 " Yank to system clipboard
-map <leader>y "*y
+map <leader>y "+y
+" Put from the system clipboard
+map <leader>p "+p
 
 " automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
