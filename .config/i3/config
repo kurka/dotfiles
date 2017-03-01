@@ -384,60 +384,12 @@ bindsym $mod+comma [title=".*vimwiki.*"] scratchpad show
 bindsym $mod+period [title=".*htop$"] scratchpad show
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#    id bar-0
-#    # tray_output primary
-#    position top
-#    # status_command ~/.config/i3/conky/conky-i3bar
-#    status_command i3bar
-#    colors {
-#        background #24364F
-#        statusline #CCCCCC
-#        focused_workspace  #ffffff #285577
-#        active_workspace   #cccccc #333333
-#        inactive_workspace #999999 #222222
-#        urgent_workspace   #ffffff #900000
-#    }
-# }
-
+# Color presets
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-
-
-bar {
-  	status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
-    position top
-	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-}
-
-#
-#
-# colors
-# class                 border  backgr. text    indicator
-# client.focused          #3498DB #208099 #ECF0F1 #2ECC71
-# client.unfocused        #3498DB #102030 #ECF0F1 #2C3E50
-# client.focused_inactive #3498DB #2C3E50 #ECF0F1 #2C3E50
-# client.urgent           #3498DB #2C3E50 #ECF0F1 #2C3E50
-
-client.focused          #849492 #849492 #ffffff #2e9ef4
-client.focused_inactive #6e686f #6e686f #ffffff #484e50
-client.unfocused        #6e686f #6e686f #888888 #292d2e
-client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-
-
 
 set $base00 #101218
 set $base01 #1f222d
@@ -456,10 +408,52 @@ set $base0D #97bbf7
 set $base0E #c0b7f9
 set $base0F #fcc09e
 
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
 
-# Window Colours
-#                         border  background text    indicator
-# client.focused          $base01 $base01    $base07 $base0F
-# client.focused_inactive $base02 $base02    $base03 $base0F
-# client.unfocused        $base02 $base02    $base03 $base0F
-# client.urgent           $base02 $base08    $base00 $base0F
+
+# Bar
+bar {
+  	status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
+    # status_command ~/.config/i3/conky/conky-i3bar
+    position top
+	colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+
+client.focused          #849492 #849492 #ffffff #2e9ef4
+client.focused_inactive #6e686f #6e686f #ffffff #484e50
+client.unfocused        #6e686f #6e686f #888888 #292d2e
+client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+
+# #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+# client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+# client.unfocused        $black      $black      $white      $darkblack  $darkblack
+# client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+# client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+# client.background       $black
+
