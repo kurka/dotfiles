@@ -91,8 +91,25 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# dotconfig aliases
 alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
+alias dotc="dotconfig"
+alias dotcommit="dotconfig commit"
+alias dotcommita="dotconfig --commit -a"
+alias dotadd="dotconfig add"
+alias dotst="dotconfig status"
+alias dotpush="dotconfig push"
+alias dotpull="dotconfig pull --recurse-submodules"
+alias dotsubadd="dotconfig submodule add"
+alias dotsubrm="dotconfig submodule remove"
+alias dotsubup="dotconfig submodule update --init --recursive"
+
+# Emacs aliases
+alias es="emacs --daemon"
+alias ec="emacsclient -c -a emacs"
+alias et="emacsclient -t"
 
 # source ~/.zsh-external-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh-custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
