@@ -154,3 +154,9 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".emacs.d/private/journal"]
+	path = .emacs.d/private/journal
+	url = https://github.com/borgnix/spacemacs-journal.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/syl20bnr/spacemacs
