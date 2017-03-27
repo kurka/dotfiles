@@ -157,6 +157,6 @@
 [submodule ".emacs.d/private/journal"]
 	path = .emacs.d/private/journal
 	url = https://github.com/borgnix/spacemacs-journal.git
-[submodule ".emacs.d"]
-	path = .emacs.d
+[submodule "/home/kurka/.emacs.d"]
+	path = /home/kurka/.emacs.d
 	url = https://github.com/syl20bnr/spacemacs
