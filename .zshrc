@@ -97,7 +97,7 @@ alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
 alias dotc="dotconfig"
 alias dotcommit="dotconfig commit"
-alias dotcommita="dotconfig --commit -a"
+alias dotcommita="dotconfig commit -a"
 alias dotadd="dotconfig add"
 alias dotst="dotconfig status"
 alias dotpush="dotconfig push"
