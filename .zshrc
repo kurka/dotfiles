@@ -95,6 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # dotconfig aliases
 alias homegit="GIT_DIR=~/.dotfiles GIT_WORK_TREE=~ git"
 alias dotconfig='/usr/bin/git --git-dir=/home/kurka/.dotfiles/ --work-tree=/home/kurka'
+
+if command -v compdef >/dev/null; then
+    compdef _git dotconfig="git"
+fi
 alias dotc="dotconfig"
 alias dotcommit="dotconfig commit"
 alias dotcommita="dotconfig commit -a"

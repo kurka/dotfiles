@@ -1,6 +1,6 @@
 # My dotfiles
 
-I am using the home folder as a git repository, to sync config fiiles between machines, but without the need of creating symlinks.
+I am using the home folder as a git repository, to sync config files between machines, but without the need of creating symlinks.
 
 To avoid problems when operating with git directories inside home (and to avoid the git status line on zsh every on when I use the terminal), the GIT_DIR is stored in a separate dir
 
@@ -24,9 +24,9 @@ dotconfig config status.showUntrackedFiles no
 ```
 
 
-where my ~/.myconf directory is a git bare repository. Then any file within the home folder can be versioned with normal commands like:
+Where my ~/.dotfiles directory is a git bare repository. Then any file within the home folder can be versioned with normal commands like:
 
-any file can then be added as:
+Any file can then be added as:
 
 ```bash
 dotconfig status
@@ -41,6 +41,5 @@ dotconfig push
 https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 http://chneukirchen.org/blog/archive/2013/01/a-grab-bag-of-git-tricks.html
 https://news.ycombinator.com/item?id=11070797
-
-
+https://github.com/jaagr/dots
 
