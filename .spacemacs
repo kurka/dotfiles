@@ -338,7 +338,11 @@ you should place your code here."
   (setq x-gtk-use-system-tooltips nil)
   (setq bibtex-completion-bibliography
       '("~/doutorado/artigos/zotero-autoexport.bib"))
+  (setq bibtex-completion-notes-path "~/vimwiki/papersnotes.org")
   (setq bibtex-completion-pdf-field "File")
+  (setq reftex-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
+  ;; (setq org-ref-bibliography-notes "~/vimwiki/papersnotes.org"
+  ;;       org-ref-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
   )
 
 
