@@ -43,6 +43,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     LaTeX
+     latex
      (journal :variables
               org-journal-dir "~/vimwiki/diary"
               org-journal-file-format "%Y-%m-%d.org"
@@ -77,7 +79,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(cdlatex)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -341,10 +343,86 @@ you should place your code here."
   (setq bibtex-completion-notes-path "~/vimwiki/papersnotes.org")
   (setq bibtex-completion-pdf-field "File")
   (setq reftex-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
-  ;; (setq org-ref-bibliography-notes "~/vimwiki/papersnotes.org"
-  ;;       org-ref-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
+  (setq org-ref-bibliography-notes "~/vimwiki/papersnotes.org"
+        org-ref-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
+
+                                        ; turn on CDLaTeX minor modsutton_reinforcement_2016e
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex) ; with org mode
+  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
+  (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
   )
 
+
+;; copied from: https://gist.github.com/mistnim/59623dc513798d43bb1e - consider later what is useful or not from below
+;; ;;  (with-eval-after-load 'org '(progn
+;;                                 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5)) ; old 1.5
+;;                                 ;; cdlatex stuff
+
+;;                                 (setq cdlatex-math-modify-alist
+;;                                       '(( ?m "\\text" nil t nil nil)
+;;                                         ( ?< "\\vec"  nil t nil nil)
+;;                                         ( ?C "\\cancel"  nil t nil nil)
+;;                                         ( ?B "\\mathbb"  nil t nil nil)))
+
+;;                                 ;; my math symboli list
+;;                                 (setq cdlatex-math-symbol-alist
+;;                                       '((?° ("^{\\circ}"))
+;;                                         (?E  ("\\exists" "\\mathcal{E}" "\\ln"))
+;;                                         (?F ("\\Phi"))
+;;                                         (?: ("\\cdots"))
+;;                                         (?N ("\\vec{\\nabla}"))))
+;;                                 ;; environments
+;;                                 ;; (setq cdlatex-env-alist
+;;                                 ;; 	     '(
+;;                                 ;; ( "bmatrix"
+;;                                 ;; "\\begin{bmatrix} \\\\ \\\\ \\\\ \\end{bmatrix}"
+;;                                 ;; " & & &"
+;;                                 ;; )
+;;                                 ;; 	       ))
+;;                                 ;; Set keyword commands
+;;                                 (setq cdlatex-command-alist
+;;                                       '(("oset" "Insert overset env"   "\\overset{?}{}" cdlatex-position-cursor nil nil t)
+;;                                         ("uset" "Insert underset env" "\\underset{?}{}" cdlatex-position-cursor nil nil t)
+;;                                         ("bin" "Insert binom env" "\\binom{?}{}" cdlatex-position-cursor nil nil t)
+;;                                         ("sq3" "Insert 3 root" "\\sqrt[3]{?}" cdlatex-position-cursor nil nil t)
+;;                                         ("vet3"  "Insert vector" "\\begin{bmatrix} ? \\\\ \\\\  \\end{bmatrix}" cdlatex-position-cursor nil nil t)
+;;                                         ("vet2"  "Insert vector" "\\begin{bmatrix} ? \\\\ \\end{bmatrix}" cdlatex-position-cursor nil nil t)
+;;                                         ("case" "Insert cases env"
+;;                                          "\\begin{cases}
+;; ?
+;; \\end{cases}" cdlatex-position-cursor nil nil t)
+;;                                         ("mt3"  "Insert 3x3 matrix"
+;;                                          "\\begin{bmatrix}
+;; ?& & \\\\
+;;  & & \\\\
+;;  & & \\\\
+;; \\end{bmatrix}" cdlatex-position-cursor nil nil t)
+;;                                         ("mt2"  "Insert 2x2 matrix"
+;;                                          "\\begin{bmatrix}
+;; ?& \\\\
+;;  & \\\\
+;; \\end{bmatrix}" cdlatex-position-cursor nil nil t)
+;;                                         ("mts2"  "Insert 2x2 separated matrix"
+;;                                          "\\left[ \\begin{array}{cc|c}
+;; ? &  & \\\\
+;;  &  & \\\\
+;; \\end{array} \\right]" cdlatex-position-cursor nil nil t)
+
+;;                                         ("lrf" "Insert floor" "\\left\\lfloor ? \\right\\rfloor" cdlatex-position-cursor nil nil t)
+;;                                         ("lrc" "Insert ceil" "\\left\\lceil ? \\right\\rceil" cdlatex-position-cursor nil nil t)
+
+;;                                         ("iintl" "Insert \\iint\\limits_{}^{}" "\\iint\\limits_{?}^{}" cdlatex-position-cursor nil nil t)
+;;                                         ("part" "Inserisce una derivata parziale " "\\frac{\\partial ?}{\\partial }" cdlatex-position-cursor nil nil t)
+;;                                         ("part2" "Inserisce una derivata parziale seconda " "\\frac{\\partial^2?}{\\partial }" cdlatex-position-cursor nil nil t)
+;;                                         ("ointl" "Insert \\oint\\limits_{}^{}" "\\oint\\limits_{?}^{}" cdlatex-position-cursor nil nil t)))
+
+;;                                 ;; (org-defkey org-cdlatex-mode-map "đ" 'cdlatex-math-symbol)
+;;                                 ;; (setq cdlatex-math-symbol-prefix ?đ)))
+
+;;                                 (org-defkey org-cdlatex-mode-map "đ" 'cdlatex-math-symbol)
+;;                                 (setq cdlatex-math-symbol-prefix ?đ)
+;;                                 ))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -377,7 +455,8 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (org-journal vmd-mode typit mmt pacmacs dash-functional 2048-game intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode adoc-mode markup-faces ox-reveal org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core pandoc-mode ox-pandoc ht pdf-tools tablist csv-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic autothemer web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme colorsarenice-theme spacemkcs-dark-theme fsharp-mode company-quickhelp smeargle orgit org-projectile pcache org-present org org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete erlang ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
+    (company-auctex cdlatex auctex-latexmk auctex org-journal vmd-mode typit mmt pacmacs dash-functional 2048-game intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode adoc-mode markup-faces ox-reveal org-ref key-chord ivy helm-bibtex parsebib biblio biblio-core pandoc-mode ox-pandoc ht pdf-tools tablist csv-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic autothemer web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme colorsarenice-theme spacemkcs-dark-theme fsharp-mode company-quickhelp smeargle orgit org-projectile pcache org-present org org-pomodoro alert log4e gntp org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete erlang ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
+ '(paradox-github-token t)
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(sml/active-background-color "#34495e")
