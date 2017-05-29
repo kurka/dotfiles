@@ -8,33 +8,46 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
+background = #ccfafafa
+foreground = #444
+linecolor = #fb2e22
+bordercolor = #555
+accent = #e60053
+
+; ;background = ${xrdb:color0:#222}
+; background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+; ;foreground = ${xrdb:color7:#222}
+; foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
 [bar/main]
+enable-ipc = true
 monitor = ${env:MONITOR:DP-1}
 width = 100%
-height = 27
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
-fixed-center = false
+; radius = 6.0
+; fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
-line-color = #f00
+line-size = 1
+line-color = ${colors.linecolor}
+; line-color = #f00
 
-border-size = 4
-border-color = #00000000
+border-size = 1
+border-color = ${colors.bordercolor}
+; border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -42,16 +55,19 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = ypn envypn:size=10;2
+font-1 = siji:pixelsize=10;2
+font-2 = termsynu:size=8;2
+; font-0 = fixed:pixelsize=10;1
+; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+; font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-center = mpd music
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center =
+modules-right = mpd music  volume xbacklight filesystem memory cpu wlan battery date powermenu
 
 tray-position = right
-tray-padding = 2
+tray-padding = 4
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -100,8 +116,9 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-background = #fff
+label-focused-underline= #cc333333
+; label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -373,8 +390,5 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini
