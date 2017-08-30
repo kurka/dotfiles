@@ -78,6 +78,9 @@ bindsym $mod+u exec emacsclient -c -a emacs
 # kill focused window
 bindsym $mod+Control+t kill
 bindsym --release button2 kill
+# The middle button and a modifer over any part of the window kills the window
+# bindsym --whole-window $mod+button2 kill
+bindsym $mod+button2 exec xkill
 
 # start rofi (a program launcher)
 bindsym $mod+p exec "rofi -show run -lines 5 -padding 150 -opacity '100' -font 'Roboto Mono 15' -width 1000 -separator-style 'none' -hide-scrollbar -color-window 'argb:dd000000, argb:0002b36, argb:7bffffff' -color-normal 'argb:0ffffff, #ffffff, argb:0eee8d5, #ffffff, #000000' -color-active 'argb:0fdf6e3, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3' -color-urgent 'argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3'"

@@ -20,7 +20,7 @@ values."
    ;; installation feature and you have to explicitly list a layer in the
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'all
+   dotspacemacs-enable-lazy-installation 'unused
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
@@ -149,7 +149,7 @@ values."
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'org-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -171,7 +171,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 10
+                               :size 9
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -347,6 +347,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+  (add-hook 'LaTeX-mode-hook 'spacemacs/toggle-auto-fill-mode-off)
+  (add-hook 'LaTeX-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
   (setq powerline-default-separator 'bar)
   (require 'org-inlinetask)
   (setq evil-want-fine-undo t)
@@ -358,18 +361,20 @@ you should place your code here."
   (setq bibtex-completion-notes-path "~/vimwiki/papersnotes.org")
   (setq bibtex-completion-pdf-field "File")
   (setq reftex-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
-  (setq org-ref-bibliography-notes "~/vimwiki/papersnotes.org"
-        org-ref-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
-  
+ 
 
                                         ; turn on CDLaTeX minor modsutton_reinforcement_2016e
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex) ; with org mode
-  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
-  (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
+  ;; (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
+  ;; (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
   (setq org-format-latex-options (plist-put org-format-latex-options  :scale 1.5))
+
+  (with-eval-after-load 'org
+    (setq org-ref-bibliography-notes "~/vimwiki/papersnotes.org"
+          org-ref-default-bibliography '("~/doutorado/artigos/zotero-autoexport.bib"))
+    (setq org-M-RET-may-split-line nil)
+    )
   )
-
-
 ;; copied from: https://gist.github.com/mistnim/59623dc513798d43bb1e - consider later what is useful or not from below
 ;; ;;  (with-eval-after-load 'org '(progn
 ;;                                 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5)) ; old 1.5
